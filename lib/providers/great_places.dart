@@ -29,14 +29,7 @@ class GreatPlaces with ChangeNotifier {
     _items.add(newPlace);
     notifyListeners();
 
-    DBHelper.insert('user_places', {
-      'id': newPlace.id,
-      'title': newPlace.title,
-      'image': newPlace.image.path,
-      'loc_lat': newPlace.location?.latitude ?? 0.0,
-      'loc_lng': newPlace.location?.longitude ?? 0.0,
-      'address': newPlace.location?.addess ?? ""
-    });
+
   }
 
   Future<void> getAndSetPlaces() async {
@@ -54,7 +47,6 @@ class GreatPlaces with ChangeNotifier {
       );
     }).toList();
 
-    notifyListeners();
   }
 
   Place findById(String id) {
